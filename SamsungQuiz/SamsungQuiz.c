@@ -35,7 +35,7 @@ int solutionq3 (char* S){
 	//This question involves finding out how many steps the binary string needs
 	//for it to become zero. If it is even, divide by two. If odd, subtract 1.
 	//If the number is larger than 100000 then reject it
-	//O(n) time complexity, O(1) space complexity
+	//O(N) time complexity, O(1) space complexity
 
 	//Remember to check for an empty or NULL string
 	if (S == NULL || *S == '\0'){
@@ -54,7 +54,7 @@ int solutionq3 (char* S){
 		//Read in the least significant 'bit' of S to integer form
 		lsbChar = *lsb;
 		intLSB = atoi(&lsbChar);
-		//Add it onto the front of intS
+		//Concatenate it onto the left of intS
 		intS = intS | (intLSB << shift);
 		//If the integer is over 100000 then this violates the problem requirements
 		if (intS > 100000){
@@ -73,12 +73,10 @@ int solutionq3 (char* S){
 		//Check to see if it is odd
 		if (intS & 1){
 			//subtract one if the number is odd
-			printf("intS is odd : %d\n", intS);
 			intS -= 1;
 		}
 		else{
 			//Shift to right to divide the number by two
-			printf("intS is even : %d\n", intS);
 			intS = intS >> 1;
 		}
 
@@ -87,7 +85,6 @@ int solutionq3 (char* S){
 
 	return stepCounter;
 }
-
 
 
 int main (void){
