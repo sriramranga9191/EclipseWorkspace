@@ -1,0 +1,21 @@
+/*
+ * SamsungQuizQ3.c
+ *
+ *  Created on: Sep 4, 2013
+ *      Author: Sriram
+ */
+
+int solution (char* S){
+	int stepCounter = 0;
+
+	//First convert the
+
+
+	return stepCounter;
+}
+
+int main (void){
+
+
+	return 0;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SamsungQuiz/SamsungQuizQ3.c&apos; to &apos;SamsungQuiz.c&apos;" description="Rename resource &apos;SamsungQuizQ3.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SamsungQuizQ3.c" name="SamsungQuiz.c" stamp="1378325461615" updateReferences="true"/>
+</session>

@@ -1,0 +1,33 @@
+/*
+ * q10.c
+ *
+ *  Created on: Aug 26, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned int br (unsigned int reflectee){
+	unsigned int shift = 0;
+	unsigned int reflected = 0;
+
+	//Loop through the reflectee until the end is reached.
+	while (reflectee != 0){
+
+		//Keep shifting reflectee to the right and doing a bitwise AND
+		//with the LSB to find each bit of reflectee.
+		//OR this bit value with 'reflected' to add the bit there
+		printf("shift = %u \n", shift);
+		printf("reflectee = %X \n", reflectee);
+
+		reflected = reflected | (((reflectee & 1) << shift) );
+
+		printf("reflected is %X \n", reflected);
+		shift++;
+		reflectee = reflectee >> shift;
+
+	}
+
+	return reflected;
+}

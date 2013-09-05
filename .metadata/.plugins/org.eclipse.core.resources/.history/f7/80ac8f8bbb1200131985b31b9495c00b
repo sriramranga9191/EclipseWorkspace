@@ -1,0 +1,97 @@
+/*
+ * staticInt.c
+ *
+ *  Created on: Apr 12, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/** test 90 - 99
+ * Insert a null-terminated string s2 in the null-terminated string s1
+ * at position pos.  All characters following position pos in s1 will
+ * be moved to follow directly after the inserted characters from s2;
+ * no characters will be overwritten.  Note: you can assume that there
+ * is sufficient memory available in s1.
+ *
+ * Hint: there is no need to create any temporary memory; simply copy
+ * the contents of the string after position pos to its new location
+ * starting from the back of the string and going forwards.
+ *
+ * Insertions should happen BEFORE the character position referenced
+ * by pos.  In other words, inserting s2 at position 0 (the first
+ * character of a string) in s1 is equivalent to the string s2
+ * followed by string s1.
+ *
+ * If the character position pos is higher (or equivalent to) the
+ * length of string s1, s2 will simply be appended to the end of s1
+ * (i.e. it is equivalent to my_strcat(s1, s2);
+ *
+ * Example: char foo[10] = "foo";
+ * my_strinsert(foo, "bar", 0) yields "barfoo".
+ *
+ * Example(2): char foo[10] = "foo";
+ * my_strinsert(foo, "bar", 100) yields "foobar".
+ */
+void my_strinsert(char *s1, const char *s2, int pos)
+{
+  int lengths1 = 0; // Length of s1
+  int lengths2 = 0; // Length of s2
+  int i = 0; // Counter used to calcualte length of s2
+  int j = 0; // Counter used to calcualte length of s2
+  int k = 0; // Counter for CASE 1
+  int a = 0; // Decrements, used for calculating position in s1 that character is used to
+  int counts1 = lengths1; // Decrements lengths1
+  int counts2 = lengths2; // Decrements lengths2
+
+  // Counts the length of s1
+  while (s1[i] != 0)
+  {
+    lengths1++;
+    i++;
+  }
+  printf ("Length of s1 = %d\n", lengths1);
+
+  // Counts the length of s2
+  while (s2[j] != 0)
+  {
+    lengths2++;
+    j++;
+  }
+  printf ("Length of s2 = %d\n", lengths2);
+
+  // CASE 1
+  // If the character position pos is higher (or equivalent to) the length of string s1, s2 will simply be appended to the end of s1
+  if (pos >= lengths1)
+  {
+    while (k <= lengths2 + 1 )
+    {
+      s1[k + lengths1] = s2[k];
+      k++;
+    }
+  }
+  else
+  {
+    // CASE 2
+    // Moves contents in s1 to desired position
+    while(counts1 >= pos)
+    {
+      s1[counts1 + lengths2] = s1[counts1];
+      counts1--;
+      a--;
+    }
+    // Moves contents in s2 into s1
+    while(counts2 > 0)
+    {
+      s1[lengths1 + lengths2 + a] = s2[counts2 - 1];
+      counts2--;
+      a--;
+    }
+  }
+}
+
+int main (void){
+
+	return 0;
+}

@@ -1,0 +1,75 @@
+/*
+ * staticInt.c
+ *
+ *  Created on: Apr 12, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MIN(A,B) ((A) < (B) ? (A) : (B))
+
+/*
+void IncrementStaticInt(){
+	static int j = 0;
+	j++;
+	printf("j = %d\n", j);
+}
+
+int main (void){
+	int i = 0;
+	for (i=0; i<10;i++){
+		IncrementStaticInt();
+	}
+	return 0;
+}
+*/
+int numBitsSet ( int number )
+{
+	int setBitsCount = 0;
+
+	while (number != 0){
+		if (1 & number){
+			setBitsCount++;
+		}
+		number = number >> 1;
+	}
+	return setBitsCount;
+}
+
+int main (void){
+
+	int setBitsCount = numBitsSet(15);
+	printf("setBitsCount = %d", setBitsCount);
+
+	/*
+	int a = 1;
+	int b = 7;
+	int* c = &a;
+
+	printf("a = %d, b = %d, *c = %d\n", a, b, *c);
+	printf("lesser is %d \n", MIN(++*c,b));
+
+	char *s = "abcd";
+	char *a = s;
+
+	printf("1 %s\n", a); //abcd
+	foo1(&a);
+	printf("2 %s\n", a); //abcd
+	foo1(&a);
+	printf("3 %s\n", a); //abcd
+	foo1(&a);
+	printf("4 %s\n", a); //abcd
+	foo1(&a);
+	printf("5 %s\n", a); //abcd
+	foo1(&a);
+	printf("6 %s\n", a); //abcd
+
+	/*
+	char *a = s;
+	foo2(&a);
+	printf("%s", a); //bcd
+	*/
+	return 0;
+}

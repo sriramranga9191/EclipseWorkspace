@@ -1,0 +1,70 @@
+/*
+ * main.c
+ *
+ *  Created on: Aug 24, 2013
+ *      Author: Sriram
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX(a,b) ((a > b) ? a : b)
+
+char *Reverse(char *Str)
+{
+	 char Buffer[7];
+	 int Len;
+	 char *To;
+	 char *ret_val;
+	 int index;
+
+	 if(Str)
+	 {
+		 Len = strlen(Str);
+		 printf("Len = %d\n", Len);
+		 printf("sizeof(Buffer) = %d\n", sizeof(Buffer));
+		 if(Len < (sizeof(Buffer)))
+		 {
+			 To = Buffer + Len - 1;
+			 index = Len - 1;
+			 while(*Str != '\0')
+			 {
+				 printf("Char at Str is : %c\n", *Str);
+				 *To-- = *Str++;
+				 printf("Char at To is : %c\n", *(To + 1));
+				 printf("Buffer[%d] is %d\n", index, Buffer[index]);
+				 index--;
+			 }
+			 Buffer[Len] = '\0';
+			 ret_val = Buffer;
+		 }
+		 else{
+			 printf("Length is too long. Returning NULL\n");
+			 ret_val = NULL;
+		 }
+	 }
+
+	 else{
+		 printf("Input pointer is NULL. Returning NULL\n");
+		 ret_val = NULL;
+	 }
+	 return(ret_val);
+}
+
+
+int main (int argc, char** argv){
+	int x = 10;
+	int y = 11;
+	char* str = "Kettle";
+	char* reversedStr;
+
+	printf("y has is larger so it will be printed. It's value is %d\n", MAX(x,y));
+
+	printf("str is : %s\n", str);
+
+	reversedStr = Reverse(str);
+
+	printf("reversedStr is : %s\n", reversedStr);
+
+	return 0;
+}

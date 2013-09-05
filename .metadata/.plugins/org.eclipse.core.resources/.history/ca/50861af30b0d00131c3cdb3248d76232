@@ -1,0 +1,9 @@
+/*
+ * q1.c
+ *
+ *  Created on: Aug 24, 2013
+ *      Author: Sriram
+ */
+#include <stdlib.h>
+
+int CountNodesInList (Node* listHead)

@@ -1,0 +1,25 @@
+/*
+ * q10.c
+ *
+ *  Created on: Aug 26, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned int br (unsigned int reflectee){
+	unsigned int index = 0x8000000;
+	int shift = 0;
+
+	//Loop through the reflectee until the end is reached.
+	//Keep shifting index to the right and doing a bitwise AND
+	//to find each bit of reflectee.
+	while (index != 0){
+
+		//Do a bitwise AND with index to find the bit value at
+	}
+
+
+	return 0;
+}

@@ -1,0 +1,61 @@
+/*
+ * trees.c
+ *
+ *  Created on: Sep 1, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct treeNode {
+	int key;
+	struct treeNode* left;
+	struct treeNode* right;
+} TreeNode;
+
+
+TreeNode* createTreeNode (int keyVal){
+	TreeNode* NewNode = malloc(sizeof(TreeNode));
+	NewNode->key = keyVal;
+	NewNode->left = NULL;
+	NewNode->right = NULL;
+	return NewNode;
+}
+
+//Takes in an array or numbers and creates a tree from this array
+TreeNode* createTree (int* array){
+
+
+}
+
+TreeNode* insertNode (TreeNode* head, int value){
+	TreeNode* curr = head;
+
+	if (curr == NULL){
+		curr = createTreeNode(value);
+		return curr;
+	}
+
+	else{
+		while (curr != NULL){
+			if (curr->key > value){
+				curr = curr->left;
+			}
+			if (curr->key < value){
+				curr = curr->right;
+			}
+			else{
+				printf("Value already exists in tree : %d\n", value);
+				return origHead;
+			}
+		}
+	}
+
+	return head;
+}
+
+int main (void){
+
+	return 0;
+}

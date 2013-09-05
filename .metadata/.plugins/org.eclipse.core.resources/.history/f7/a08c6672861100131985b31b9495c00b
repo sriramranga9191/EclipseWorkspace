@@ -1,0 +1,47 @@
+/*
+ * staticInt.c
+ *
+ *  Created on: Apr 12, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+/*
+void IncrementStaticInt(){
+	static int j = 0;
+	j++;
+	printf("j = %d\n", j);
+}
+
+int main (void){
+	int i = 0;
+	for (i=0; i<10;i++){
+		IncrementStaticInt();
+	}
+	return 0;
+}
+*/
+
+void foo1(char **p){
+	++*p;
+}
+
+void foo2(char **p){
+	*p += 1;
+}
+
+int main (void){
+	char *s = "abcd";
+	printf("%s", a); //abcd
+	char *a = s;
+	foo1(&a);
+	printf("%s", a); //abcd
+
+	/*
+	char *a = s;
+	foo2(&a);
+	printf("%s", a); //bcd
+	*/
+	return 0;
+}

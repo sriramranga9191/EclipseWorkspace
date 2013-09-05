@@ -1,0 +1,65 @@
+/*
+ * main.c
+ *
+ *  Created on: Aug 24, 2013
+ *      Author: Sriram
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *Reverse(char *Str)
+{
+	 char* Buffer = (char*)malloc(20*sizeof(char));
+	 int Len;
+	 char *To;
+	 char *ret_val;
+	 int index;
+
+	 if(Str)
+	 {
+		 Len = strlen(Str);
+		 printf("Len = %d\n", Len);
+		 printf("sizeof(Buffer) = %d\n", sizeof(Buffer));
+		 if(Len < (sizeof(Buffer)))
+		 {
+			 To = Buffer + Len - 1;
+			 index = Len - 1;
+			 while(*Str != '\0')
+			 {
+				 printf("Char at Str is : %c\n", *Str);
+				 *To-- = *Str++;
+				 printf("Char at To is : %c\n", *(To + 1));
+				 printf("Buffer[%d] is %c\n", index, Buffer[index]);
+				 index--;
+			 }
+			 Buffer[Len] = '\0';
+			 ret_val = Buffer;
+		 }
+		 else{
+			 printf("Length is too long. Returning NULL\n");
+			 ret_val = NULL;
+		 }
+	 }
+
+	 else{
+		 printf("Input pointer is NULL. Returning NULL\n");
+		 ret_val = NULL;
+	 }
+	 return(ret_val);
+}
+
+
+int main (int argc, char** argv){
+	char* str = "Kettle";
+	char* reversedStr;
+
+	printf("str is : %s\n", str);
+
+	reversedStr = Reverse(str);
+
+	printf("reversedStr is : %s\n", reversedStr);
+	free(reversedStr);
+
+	return 0;
+}

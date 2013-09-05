@@ -1,0 +1,18 @@
+/*
+ * trees.c
+ *
+ *  Created on: Sep 1, 2013
+ *      Author: Sriram
+ */
+
+typedef struct treeNode {
+	int key;
+	struct treeNode* left;
+	struct treeNode* right;
+} TreeNode;
+
+
+int main (void){
+
+	return 0;
+}

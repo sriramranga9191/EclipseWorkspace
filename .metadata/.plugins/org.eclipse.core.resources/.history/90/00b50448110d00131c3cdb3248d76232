@@ -1,0 +1,31 @@
+/*
+ * q1.c
+ *
+ *  Created on: Aug 24, 2013
+ *      Author: Sriram
+ */
+#include <stdlib.h>
+
+int CountNodesInList (Node* listHead){
+	int nodeCount = 0;
+
+	//Check to make sure that the list is not circular else this function won't end
+	Node* singleStepper = listHead;
+	Node* doubleStepper = listHead;
+	while ((doubleStepper != NULL) && (doubleStepper != singleStepper)){
+		if (doubleStepper->Next != NULL){
+			doubleStepper = doubleStepper->Next->Next;
+		}
+		else{
+			break;
+		}
+		singleStepper = singleStepper->Next;
+	}
+
+	//Count the nodes in the list
+	while (listHead != NULL){
+		listHead = listHead->Next;
+		nodeCount++;
+	}
+	return nodeCount;
+}

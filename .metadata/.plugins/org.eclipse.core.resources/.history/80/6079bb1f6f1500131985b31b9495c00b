@@ -1,0 +1,18 @@
+/*
+ * staticInt.c
+ *
+ *  Created on: Apr 12, 2013
+ *      Author: Sriram
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void){
+	int array[5];
+
+	printf("sizeof(array) is %d\n", sizeof(array));
+	printf("sizeof(int) is %d\n", sizeof(int));
+
+	return 0;
+}
